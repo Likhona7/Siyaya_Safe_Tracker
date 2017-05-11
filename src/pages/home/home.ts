@@ -2,14 +2,21 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LocationTracker } from '../../providers/location-tracker';
 import { Page2Page } from '../page2/page2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public locationTracker: LocationTracker) {
+customer: FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController, public locationTracker: LocationTracker, angFire: AngularFire) {
+     this.customer = angFire.database.list('/Customer');
 
   }
 

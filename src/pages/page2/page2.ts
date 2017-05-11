@@ -21,9 +21,15 @@ export class Page2Page {
   ionViewDidLoad(){
     this.loadMap();
   }
+
   loadMap(){
+
     this.geolocation.getCurrentPosition().then((position) => {
+
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+
       let mapOptions = {
         center: latLng,
         zoom: 18,

@@ -7,9 +7,25 @@
 </ion-header>
 
 <ion-content>
+
+  <!-- <ion-label> Sam</ion-label>
+  <ion-toggle (click)="start()"></ion-toggle> -->
   <h3>Current Latitude: {{locationTracker.lat}}</h3>
   <h3>Current Longitude: {{locationTracker.lng}}</h3>
   <button ion-button full primary (click)="start()">Start Tracking</button>
   <button ion-button full primary (click)="stop()">Stop Tracking</button>
   <button ion-button color="secondary" large block (click)="loadMap()">Open Map Page</button>
+
+  <h3>Moving : <strong>{{locationTracker.lat}}</strong></h3>
+
+<ion-list>
+  <ion-item-sliding *ngFor="let customers of Customer | async">
+
+    <ion-item>
+    <p>Name : <strong>{{customers}}</strong></p>
+    </ion-item>
+  </ion-item-sliding>
+   </ion-list>
+
+
 </ion-content>
